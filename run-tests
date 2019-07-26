@@ -1,0 +1,31 @@
+#!/bin/sh
+
+ts=$(date +%s%N)
+./node_modules/cucumber/bin/cucumber-js
+tt=$((($(date +%s%N) - $ts)/1000000))
+echo "cucumber-js: $tt milliseconds"
+
+ts=$(date +%s%N)
+./node_modules/cucumber-electron/bin/cucumber-electron.js
+tt=$((($(date +%s%N) - $ts)/1000000))
+echo "cucumber-electron: $tt milliseconds"
+
+ts=$(date +%s%N)
+./node_modules/mocha/bin/mocha
+tt=$((($(date +%s%N) - $ts)/1000000))
+echo "mocha: $tt milliseconds"
+
+ts=$(date +%s%N)
+./node_modules/electron-mocha/bin/electron-mocha test/exampleTest.js
+tt=$((($(date +%s%N) - $ts)/1000000))
+echo "electron-mocha: $tt milliseconds"
+
+ts=$(date +%s%N)
+./node_modules/electron-mocha/bin/electron-mocha --renderer test/exampleTest.js
+tt=$((($(date +%s%N) - $ts)/1000000))
+echo "electron-mocha --renderer: $tt milliseconds"
+
+ts=$(date +%s%N)
+./node_modules/node-electron/bin/mocha-electron
+tt=$((($(date +%s%N) - $ts)/1000000))
+echo "node-electron/mocha-electron: $tt milliseconds"
