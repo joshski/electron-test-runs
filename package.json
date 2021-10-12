@@ -6,7 +6,7 @@
   "dependencies": {
     "cucumber": "^5.1.0",
     "cucumber-electron": "^2.7.0",
-    "electron": "^5.0.8",
+    "electron": "^11.5.0",
     "electron-mocha": "^8.1.1",
     "mocha": "github:dereke/mocha#friendly-api",
     "node-electron": "featurist/node-electron#test-in-electron"
